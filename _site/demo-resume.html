@@ -811,7 +811,7 @@
 								<div class="col-half-section col-half-section-right mr-3">
 									
 									<h2 class="text-color-quaternary text-uppercase font-weight-extra-bold">Say Hello</h2>
-									<form id="contactForm" class="contact-form custom-form-style">
+								<!--<form id="contactForm" class="contact-form custom-form-style">-->
 									<!--	<div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
 											<strong>Success!</strong> Your message has been sent to us.
 										</div>
@@ -820,7 +820,7 @@
 											<span class="mail-error-message text-1 d-block" id="mailErrorMessage"></span>
 										</div> -->
 										
-										<div class="form-content">
+									<!--	<div class="form-content">
 											<div class="form-control-custom">
 												<input type="text" class="form-control" name="name" placeholder="Your Name *" data-msg-required="This field is required." id="name" required="" />
 											</div>
@@ -832,10 +832,16 @@
 											</div>
 											<input type="submit" class="btn btn-quaternary text-color-light text-uppercase font-weight-semibold outline-none custom-btn-style-2 custom-border-radius-1" value="Submit" />
 										</div>
-									</form>
-									<div id="form-response"></div>
-														<br/>
-								</div>
+									</form> -->
+									<div class="form-style-2-heading">Provide your information</div>
+						<input type="text" id="name" placeholder="Enter name here   *" class="form-control" /><span class="required"><class="input-field"><br/>
+						<input type="text" id="email" placeholder="Enter email here   *" class="form-control" /><span class="required"><class="input-field"><br/>
+						<input type="text" id="phone" placeholder="Enter phone # here" class="form-control" /><class="input-field"><br/>
+						<textarea id="desc" rows="3" placeholder="Enter your message here  *" class="form-control" class="textarea-field" span class="required"></textarea><br/>
+						<button id="submit" class="btn btn-lg">Submit</button>
+						</form>
+						<div id="form-response"></div>
+						
 							</div>
 						</section>
 					</div>
