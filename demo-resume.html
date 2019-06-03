@@ -53,6 +53,43 @@
 
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>
+		<!-- For Form -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+
+					$("#submit").click(function(e) {
+						e.preventDefault();
+
+						var name = $("#name").val(),
+							email = $("#email").val(),
+							phone = $("#phone").val(),
+							wsource = $("#wsource").val(),
+							desc = $("#desc").val();
+
+						$.ajax({
+							type: "POST",
+							url: 'https://6632bs8ve0.execute-api.us-east-1.amazonaws.com/TestAPI/contact-us',
+							contentType: 'application/json',
+							data: JSON.stringify({
+								'name': name,
+								'phone':phone,
+								'email': email,
+								'desc': desc,
+								'wsource': "www.johnprefer.com - ContactForm"
+							}),
+							success: function(res){
+								$('#form-response').text('Thank You Message Sent.');
+							},
+							error: function(){
+								$('#form-response').text('Error.');
+							}
+						});
+
+					})
+
+				});
+			</script> 
 
 	</head>
 	<body data-spy="scroll" data-target=".wrapper-spy">
@@ -774,14 +811,14 @@
 								<div class="col-half-section col-half-section-right mr-3">
 									
 									<h2 class="text-color-quaternary text-uppercase font-weight-extra-bold">Say Hello</h2>
-									<form id="contactForm" class="contact-form custom-form-style" action="php/contact-form.php" method="post">
-										<div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
+									<form id="contactForm" class="contact-form custom-form-style">
+									<!--	<div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
 											<strong>Success!</strong> Your message has been sent to us.
 										</div>
 										<div class="contact-form-error alert alert-danger d-none mt-4" id="contactError">
 											<strong>Error!</strong> There was an error sending your message.
 											<span class="mail-error-message text-1 d-block" id="mailErrorMessage"></span>
-										</div>
+										</div> -->
 										
 										<div class="form-content">
 											<div class="form-control-custom">
@@ -796,7 +833,8 @@
 											<input type="submit" class="btn btn-quaternary text-color-light text-uppercase font-weight-semibold outline-none custom-btn-style-2 custom-border-radius-1" value="Submit" />
 										</div>
 									</form>
-
+									<div id="form-response"></div>
+														<br/>
 								</div>
 							</div>
 						</section>
